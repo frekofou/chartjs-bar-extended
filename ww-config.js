@@ -9,10 +9,22 @@ function isDataArrayObject(data) {
 
 export default {
     editor: {
-        label: 'Chart - Bar',
+        label: 'Chart - Bar - extended',
         icon: 'fontawesome/regular/chart-bar',
         customStylePropertiesOrder: [
-            ['isLegend', 'legendPosition', 'legendAlignement', 'legendSize', 'legendColor'],
+            [
+                'isLegend',
+                'legendPosition',
+                'legendAlignement',
+                'legendSize',
+                'legendColor',
+                'tickSize',
+                'ticksDisplay',
+                'dataLabelsDisplay',
+                'dataLabelsColor',
+                'ticksAlign',
+                'ticksColor',
+            ],
             ['axis', 'stacked', 'startAtZero', 'gridColor'],
         ],
         customSettingsPropertiesOrder: [
@@ -20,14 +32,7 @@ export default {
             ['labels', 'datasets'],
             'data',
             'dataError',
-            [
-                'xAxisTitle',
-                'dataXField',
-                'dataXFieldProperty',
-                'dataOrderBy',
-                'dataDirection',
-                'dataXEmpty',
-            ],
+            ['xAxisTitle', 'dataXField', 'dataXFieldProperty', 'dataOrderBy', 'dataDirection', 'dataXEmpty'],
             ['yAxis', 'dataYField', 'dataYFieldProperty', 'aggregate', 'groupBy', 'groupByProperty'],
             ['colors'],
         ],
@@ -88,6 +93,53 @@ export default {
         },
         gridColor: {
             label: 'Grid color',
+            type: 'Color',
+            options: { nullable: true },
+        },
+        tickSize: {
+            label: 'Tick size',
+            type: 'Length',
+            options: {
+                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 50 }],
+            },
+            defaultValue: '12px',
+        },
+        ticksDisplay: {
+            type: 'OnOff',
+            label: 'Ticks display',
+            bindable: true,
+            responsive: true,
+            defaultValue: true,
+        },
+        dataLabelsDisplay: {
+            type: 'OnOff',
+            label: 'Datalabels display',
+            bindable: false,
+            responsive: true,
+            defaultValue: false,
+        },
+        dataLabelsColor: {
+            label: 'DataLabels color',
+            type: 'Color',
+            options: { nullable: true },
+        },
+        ticksAlign: {
+            type: 'TextSelect',
+            label: 'Ticks align',
+            options: {
+                options: [
+                    { value: 'start', label: 'Start' },
+                    { value: 'center', label: 'Center' },
+                    { value: 'end', label: 'End' },
+                ],
+            },
+            bindable: true,
+            responsive: true,
+            defaultValue: 'center',
+        },
+
+        ticksColor: {
+            label: 'Ticks color',
             type: 'Color',
             options: { nullable: true },
         },

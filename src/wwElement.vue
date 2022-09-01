@@ -5,6 +5,9 @@
 </template>
 
 <script>
+
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import {
     Chart,
     BarElement,
@@ -37,7 +40,8 @@ Chart.register(
     Legend,
     Title,
     Tooltip,
-    SubTitle
+    SubTitle,
+    ChartDataLabels
 );
 
 export default {
@@ -171,13 +175,13 @@ export default {
                                         return (
                                             (Array.isArray(currentDataXFieldValue)
                                                 ? currentDataXFieldValue
-                                                      .map(elem => _.get(elem, dataXFieldProperty, elem))
-                                                      .includes(elem)
+                                                    .map(elem => _.get(elem, dataXFieldProperty, elem))
+                                                    .includes(elem)
                                                 : currentDataXFieldValue === elem) &&
                                             (Array.isArray(currentGroupByValue)
                                                 ? currentGroupByValue
-                                                      .map(elem => _.get(elem, groupByProperty, elem))
-                                                      .includes(groupByValue)
+                                                    .map(elem => _.get(elem, groupByProperty, elem))
+                                                    .includes(groupByValue)
                                                 : currentGroupByValue === groupByValue)
                                         );
                                     })
@@ -231,9 +235,14 @@ export default {
                     datasets,
                 },
                 options: {
+                    locale: 'fr-FR',
                     indexAxis: this.content.axis,
                     responsive: true,
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: true,
+                    layout: {
+
+                        padding: 50
+                    },
                     plugins: {
                         legend: {
                             display: this.content.isLegend,
@@ -245,6 +254,17 @@ export default {
                                 font: { size: parseInt(this.content.legendSize) },
                             },
                         },
+                        datalabels: {
+                            display: this.content.dataLabelsDisplay,
+                            color: this.content.dataLabelsColor,
+                            align: 'end',
+                            anchor: 'end',
+                            padding: 5,
+                            /* formatter: function (value, context) {
+                                 return context.chart.data.datasets[0].data[context.dataIndex] + ' €';
+                             }*/
+
+                        },
                     },
                     interaction: {
                         intersect: false,
@@ -253,20 +273,38 @@ export default {
                         x: {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
-                                color: this.content.legendColor,
-                                font: { size: parseInt(this.content.legendSize) },
+                                color: this.content.ticksColor,
+                                font: { size: parseInt(this.content.tickSize) },
+                                display: this.content.ticksDisplay,
+                                align: this.content.ticksAlign,
+                                /* callback: (value, index, values) => {
+                                     return new Intl.NumberFormat('fr-FR', {
+                                         style: 'currency',
+                                         currency: 'EUR'
+                                     }).format(value)
+                                 }*/
+
                             },
                             stacked: this.content.stacked,
                         },
                         y: {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
-                                color: this.content.legendColor,
-                                font: { size: parseInt(this.content.legendSize) },
+                                color: this.content.ticksColor,
+                                font: { size: parseInt(this.content.tickSize) },
+                                display: this.content.ticksDisplay,
+                                align: this.content.ticksAlign,
                             },
                             stacked: this.content.stacked,
                             beginAtZero: this.content.startAtZero,
+                            /* callback: (value, index, values) => {
+                                 return new Intl.NumberFormat('fr-FR', {
+                                     style: 'currency',
+                                     currency: 'EUR'
+                                 }).format(value)
+                             }*/
                         },
+
                     },
                 },
             };
@@ -297,14 +335,15 @@ export default {
         },
         'content.legendColor'() {
             this.chartInstance.options.plugins.legend.labels.color = this.content.legendColor;
-            this.chartInstance.options.scales.x.ticks.color = this.content.legendColor;
-            this.chartInstance.options.scales.y.ticks.color = this.content.legendColor;
             this.chartInstance.update();
         },
         'content.legendSize'() {
             this.chartInstance.options.plugins.legend.labels.font.size = parseInt(this.content.legendSize);
-            this.chartInstance.options.scales.x.ticks.font.size = parseInt(this.content.legendSize);
-            this.chartInstance.options.scales.y.ticks.font.size = parseInt(this.content.legendSize);
+            this.chartInstance.update();
+        },
+        'content.tickSize'() {
+            this.chartInstance.options.scales.x.ticks.font.size = parseInt(this.content.tickSize);
+            this.chartInstance.options.scales.y.ticks.font.size = parseInt(this.content.tickSize);
             this.chartInstance.update();
         },
         'content.gridColor'() {
@@ -314,7 +353,32 @@ export default {
             this.chartInstance.options.scales.y.grid.color = this.content.gridColor;
             this.chartInstance.update();
         },
+        'content.ticksColor'() {
+            this.chartInstance.options.scales.x.ticks.color = this.content.ticksColor;
+            this.chartInstance.options.scales.y.ticks.color = this.content.ticksColor;
+            this.chartInstance.update();
+        },
         'content.axis'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.ticksDisplay'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.dataLabelsDisplay'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.ticksAlign'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.ticksColor'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.dataLabelsColor'() {
             if (this.chartInstance) this.chartInstance.destroy();
             this.initChart();
         },
@@ -402,6 +466,9 @@ export default {
 
 <style lang="scss" scoped>
 .chart-container {
+    width: inherit;
+    height: inherit;
+
     #chartjs-vertical-bar {
         width: 100% !important;
         height: 100% !important;
