@@ -251,7 +251,7 @@ export default {
                             labels: {
                                 usePointStyle: true,
                                 color: this.content.legendColor,
-                                font: { size: parseInt(this.content.legendSize) },
+                                font: { size: parseInt(this.content.legendSize), family: 'text-primary-xxsmall' },
                             },
                         },
                         datalabels: {
