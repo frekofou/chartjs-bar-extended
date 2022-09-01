@@ -260,6 +260,7 @@ export default {
                             align: 'end',
                             anchor: 'end',
                             padding: 5,
+                            font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall' },
                             /* formatter: function (value, context) {
                                  return context.chart.data.datasets[0].data[context.dataIndex] + ' €';
                              }*/
@@ -274,7 +275,7 @@ export default {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
                                 color: this.content.ticksColor,
-                                font: { size: parseInt(this.content.tickSize) },
+                                font: { size: parseInt(this.content.tickSize),family: 'text-primary-xxsmall'  },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                                 /* callback: (value, index, values) => {
@@ -292,7 +293,7 @@ export default {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
                                 color: this.content.ticksColor,
-                                font: { size: parseInt(this.content.tickSize) },
+                                font: { size: parseInt(this.content.tickSize),family: 'text-primary-xxsmall'  },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                             },
