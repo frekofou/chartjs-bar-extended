@@ -478,9 +478,6 @@ export default {
 
 <style lang="scss" scoped>
 .chart-container {
-    width: inherit;
-    height: inherit;
-
     #chartjs-vertical-bar {
         width: 100% !important;
         height: 100% !important;
