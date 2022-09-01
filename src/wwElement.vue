@@ -241,7 +241,7 @@ export default {
                     maintainAspectRatio: true,
                     layout: {
 
-                        padding: 50
+                        padding: 5
                     },
                     plugins: {
                         legend: {
