@@ -25,7 +25,7 @@ export default {
                 'ticksAlign',
                 'ticksColor',
             ],
-            ['axis', 'stacked', 'startAtZero', 'gridColor'],
+            ['axis', 'axisXDisplay', 'axisYDisplay', 'stacked', 'startAtZero', 'gridColor'],
         ],
         customSettingsPropertiesOrder: [
             'dataType',
@@ -155,6 +155,20 @@ export default {
             bindable: true,
             responsive: true,
             defaultValue: 'x',
+        },
+        axisXDisplay: {
+            type: 'OnOff',
+            label: 'Axis X display',
+            bindable: true,
+            responsive: true,
+            defaultValue: true,
+        },
+        axisYDisplay: {
+            type: 'OnOff',
+            label: 'Axis Y display',
+            bindable: true,
+            responsive: true,
+            defaultValue: true,
         },
         stacked: {
             type: 'OnOff',

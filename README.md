@@ -22,6 +22,8 @@ We add features based on chartjs options:
 
 - Datalabel: the label position is outside the bar
 
+- Axis: you can choose to display the axe x,y
+
 
 Upgraded component
 

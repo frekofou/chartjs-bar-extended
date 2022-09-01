@@ -286,6 +286,7 @@ export default {
 
                             },
                             stacked: this.content.stacked,
+                            display: this.content.axisXDisplay,
                         },
                         y: {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
@@ -296,6 +297,7 @@ export default {
                                 align: this.content.ticksAlign,
                             },
                             stacked: this.content.stacked,
+                            display: this.content.axisYDisplay,
                             beginAtZero: this.content.startAtZero,
                             /* callback: (value, index, values) => {
                                  return new Intl.NumberFormat('fr-FR', {
@@ -359,6 +361,15 @@ export default {
             this.chartInstance.update();
         },
         'content.axis'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        'content.axisXDisplay'() {
+            if (this.chartInstance) this.chartInstance.destroy();
+            this.initChart();
+        },
+        
+        'content.axisYDisplay'() {
             if (this.chartInstance) this.chartInstance.destroy();
             this.initChart();
         },
