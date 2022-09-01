@@ -260,9 +260,9 @@ export default {
                             align: 'end',
                             anchor: 'end',
                             padding: 5,
-                            /* formatter: function (value, context) {
-                                 return context.chart.data.datasets[0].data[context.dataIndex] + ' €';
-                             }*/
+                            formatter: function (value, context) {
+                                return context.chart.data.datasets[0].data[context.dataIndex] + ' €';
+                            }
 
                         },
                     },
@@ -277,12 +277,12 @@ export default {
                                 font: { size: parseInt(this.content.tickSize) },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
-                                /* callback: (value, index, values) => {
-                                     return new Intl.NumberFormat('fr-FR', {
-                                         style: 'currency',
-                                         currency: 'EUR'
-                                     }).format(value)
-                                 }*/
+                                callback: (value, index, values) => {
+                                    return new Intl.NumberFormat('fr-FR', {
+                                        style: 'currency',
+                                        currency: 'EUR'
+                                    }).format(value)
+                                }
 
                             },
                             stacked: this.content.stacked,
@@ -297,12 +297,12 @@ export default {
                             },
                             stacked: this.content.stacked,
                             beginAtZero: this.content.startAtZero,
-                            /* callback: (value, index, values) => {
-                                 return new Intl.NumberFormat('fr-FR', {
-                                     style: 'currency',
-                                     currency: 'EUR'
-                                 }).format(value)
-                             }*/
+                            callback: (value, index, values) => {
+                                return new Intl.NumberFormat('fr-FR', {
+                                    style: 'currency',
+                                    currency: 'EUR'
+                                }).format(value)
+                            }
                         },
 
                     },
