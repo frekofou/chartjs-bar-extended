@@ -260,7 +260,7 @@ export default {
                             align: 'end',
                             anchor: 'end',
                             padding: 5,
-                            clamp: 'true',
+                            clamp: true,
                             font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall' },
                             /* formatter: function (value, context) {
                                  return context.chart.data.datasets[0].data[context.dataIndex] + ' €';
