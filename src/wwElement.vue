@@ -240,9 +240,9 @@ export default {
                     responsive: true,
                     maintainAspectRatio: true,
                     layout: {
-                    padding: {
+                        padding: {
                             left: 0
-                            }
+                        }
                     },
                     plugins: {
                         legend: {
@@ -277,7 +277,7 @@ export default {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
                                 color: this.content.ticksColor,
-                                font: { size: parseInt(this.content.tickSize),family: 'text-primary-xxsmall'  },
+                                font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall' },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                                 /* callback: (value, index, values) => {
@@ -295,14 +295,14 @@ export default {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
                                 color: this.content.ticksColor,
-                                font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall'},
+                                font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall' },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                                 crossAlign: 'far',
                                 padding: 5,
                             },
                             afterFit: (scale) => {
-                            scale.width  = 90;
+                                scale.width = 180;
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
@@ -376,7 +376,7 @@ export default {
             if (this.chartInstance) this.chartInstance.destroy();
             this.initChart();
         },
-        
+
         'content.axisYDisplay'() {
             if (this.chartInstance) this.chartInstance.destroy();
             this.initChart();
