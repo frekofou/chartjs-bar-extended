@@ -24,6 +24,8 @@ We add features based on chartjs options:
 
 - Axis: you can choose to display the axe x,y
 
+- Axis: you can change legend width
+
 
 Upgraded component
 

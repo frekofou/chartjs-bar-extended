@@ -17,6 +17,7 @@ export default {
                 'legendPosition',
                 'legendAlignement',
                 'legendSize',
+                'legendWidth',
                 'legendColor',
                 'tickSize',
                 'ticksDisplay',
@@ -83,6 +84,15 @@ export default {
                 unitChoices: [{ value: 'px', label: 'px', min: 0, max: 50 }],
             },
             defaultValue: '12px',
+            hidden: content => !content.isLegend,
+        },
+        legendWidth: {
+            label: 'Witdh',
+            type: 'Length',
+            options: {
+                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 50 }],
+            },
+            defaultValue: '10',
             hidden: content => !content.isLegend,
         },
         legendColor: {
