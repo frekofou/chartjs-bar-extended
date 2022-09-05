@@ -240,8 +240,9 @@ export default {
                     responsive: true,
                     maintainAspectRatio: true,
                     layout: {
-
-                        padding: 5
+                    padding: {
+                            left: 50,
+                            }
                     },
                     plugins: {
                         legend: {
