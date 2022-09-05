@@ -301,6 +301,9 @@ export default {
                                 crossAlign: 'far',
                                 padding: 5,
                             },
+                            afterSetDimensions: (scale) => {
+                            scale.maxWidth = 800;
+                            },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
                             beginAtZero: this.content.startAtZero,
