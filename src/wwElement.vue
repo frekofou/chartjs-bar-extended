@@ -298,6 +298,7 @@ export default {
                                 font: { size: parseInt(this.content.tickSize),family: 'text-primary-xxsmall'  },
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
+                                crossAlign: 'far',
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
