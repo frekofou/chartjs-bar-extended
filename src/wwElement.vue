@@ -301,8 +301,8 @@ export default {
                                 crossAlign: 'far',
                                 padding: 5,
                             },
-                            afterSetDimensions: (scale) => {
-                            scale.maxWidth = 800;
+                            afterFit: (scale) => {
+                            scale.width  = 90;
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
