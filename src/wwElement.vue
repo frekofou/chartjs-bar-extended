@@ -295,10 +295,13 @@ export default {
                             grid: { color: this.content.gridColor, borderColor: this.content.gridColor },
                             ticks: {
                                 color: this.content.ticksColor,
-                                font: { size: parseInt(this.content.tickSize),family: 'text-primary-xxsmall'  },
+                                font: { size: parseInt(this.content.tickSize), family: 'text-primary-xxsmall'},
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                                 crossAlign: 'far',
+                                padding: {
+                                    right: 10
+                                }
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
