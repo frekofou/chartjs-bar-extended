@@ -241,7 +241,7 @@ export default {
                     maintainAspectRatio: true,
                     layout: {
                     padding: {
-                            left: 50,
+                            left: 50
                             }
                     },
                     plugins: {
