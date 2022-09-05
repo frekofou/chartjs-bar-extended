@@ -299,9 +299,7 @@ export default {
                                 display: this.content.ticksDisplay,
                                 align: this.content.ticksAlign,
                                 crossAlign: 'far',
-                                padding: {
-                                    right: 10
-                                }
+                                padding: 5,
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
