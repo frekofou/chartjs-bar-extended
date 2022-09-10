@@ -103,6 +103,7 @@ export default {
                 unitChoices: [{ value: 'px', label: 'px', min: 0, max: 50 }],
             },
             defaultValue: '10',
+            bindable: true,
             hidden: content => !content.isLegend,
         },
         legendColor: {
