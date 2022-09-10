@@ -17,7 +17,6 @@ export default {
                 'legendPosition',
                 'legendAlignement',
                 'legendSize',
-                'legendWidth',
                 'legendColor',
                 'tickSize',
                 'ticksDisplay',
@@ -26,7 +25,7 @@ export default {
                 'ticksAlign',
                 'ticksColor',
             ],
-            ['axis', 'axisXDisplay', 'axisYDisplay', 'stacked', 'startAtZero', 'gridColor'],
+            ['axis', 'axisXDisplay', 'axisYDisplay', 'axisWidth', 'stacked', 'startAtZero', 'gridColor'],
         ],
         customSettingsPropertiesOrder: [
             'dataType',
@@ -96,15 +95,14 @@ export default {
             defaultValue: '12px',
             hidden: content => !content.isLegend,
         },
-        legendWidth: {
-            label: 'Witdh',
-            type: 'Length',
+        axisWidth: {
+            label: 'Axis Width',
+            type: 'Number',
             options: {
-                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 50 }],
+                unitChoices: [{ value: 'px', label: 'px', min: 0, max: 100 }],
             },
             defaultValue: '10',
             bindable: true,
-            hidden: content => !content.isLegend,
         },
         legendColor: {
             label: 'Color',

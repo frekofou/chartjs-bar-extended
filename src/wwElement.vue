@@ -302,7 +302,7 @@ export default {
                                 padding: 5,
                             },
                             afterFit: (scale) => {
-                                scale.width = parseInt(this.content.legendWidth);
+                                scale.width = parseInt(this.content.axisWidth);
                             },
                             stacked: this.content.stacked,
                             display: this.content.axisYDisplay,
@@ -347,9 +347,9 @@ export default {
             this.chartInstance.options.plugins.legend.labels.color = this.content.legendColor;
             this.chartInstance.update();
         },
-        'content.legendWidth'() {
-            this.chartInstance.options.scales.y.afterFit.scale.witdh = parseInt(this.content.legendWidth);
-            this.chartInstance.update();
+        'content.axisWidth'() {
+            this.chartInstance.options.scales.y.afterFit.scale = parseInt(this.content.axisWidth);
+            //this.chartInstance.update();
         },
         'content.legendSize'() {
             this.chartInstance.options.plugins.legend.labels.font.size = parseInt(this.content.legendSize);
