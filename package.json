@@ -4,7 +4,7 @@
         "type": "git",
         "url": "https://github.com/weweb-assets/chartjs-vertical-bar"
     },
-    "version": "1.2.1",
+    "version": "1.2.2",
     "scripts": {
         "build": "weweb build",
         "serve": "weweb serve"
