@@ -1,10 +1,10 @@
 {
-    "name": "chartjs-bar-gaspachio",
+    "name": "chartjs-bar-extended",
     "repository": {
         "type": "git",
         "url": "https://github.com/weweb-assets/chartjs-vertical-bar"
     },
-    "version": "1.1.8",
+    "version": "1.1.9",
     "scripts": {
         "build": "weweb build",
         "serve": "weweb serve"

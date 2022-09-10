@@ -9,7 +9,7 @@ function isDataArrayObject(data) {
 
 export default {
     editor: {
-        label: 'Chart - Bar - extended',
+        label: 'Chart - Bar - extended by gaspach.io',
         icon: 'fontawesome/regular/chart-bar',
         customStylePropertiesOrder: [
             [
@@ -39,6 +39,16 @@ export default {
         ],
     },
     properties: {
+        fontFamily: {
+            label: {
+                en: 'Font family',
+                fr: 'Font',
+            },
+            type: 'FontFamily',
+            responsive: true,
+            states: true,
+            hidden: content => content.font,
+        },
         isLegend: {
             label: 'Legend',
             type: 'OnOff',

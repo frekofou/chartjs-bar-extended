@@ -16,6 +16,8 @@ We add features based on chartjs options:
 
 - Tick size: independant tick size configuration 
 
+- Tick: add font configuration
+
 - Datalabel: you can choose to display DataLabels
 
 - Datalabel: you can choose the Datalabels colors
@@ -25,6 +27,7 @@ We add features based on chartjs options:
 - Axis: you can choose to display the axe x,y
 
 - Axis: you can change legend width
+
 
 
 Upgraded component
